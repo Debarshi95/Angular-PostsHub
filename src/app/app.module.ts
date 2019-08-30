@@ -5,7 +5,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
-import { SigninComponent } from "./components/signin/signin.component";
+import { SignUpComponent } from "./components/signup/signup.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { PostsComponent } from "./components/posts/posts.component";
 import { PostDetailComponent } from "./components/post-detail/post-detail.component";
@@ -18,7 +18,7 @@ import { FooterComponent } from "./components/footer/footer.component";
   declarations: [
     AppComponent,
     LoginComponent,
-    SigninComponent,
+    SignUpComponent,
     DashboardComponent,
     PostsComponent,
     PostDetailComponent,
