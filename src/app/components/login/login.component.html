@@ -1,27 +1,30 @@
 <div>
   <app-navbar></app-navbar>
-  {{ loginForm.value | json }}
-  <div class="card mx-auto mt-5" style="width:450px">
-    <div class="card-body">
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div
+    class="alert alert-danger mx-auto text-center mt-4"
+    style="width:25rem;"
+    *ngIf="loginForm.errors?.servererror"
+  >
+    {{ loginForm.errors?.servererror }}
+  </div>
+  <div class="card mx-auto mt-5" style="width:25rem;">
+    <div class="card-header">
+      <h3>Login</h3>
+    </div>
+    <div class="card-body px-4">
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
         <div class="form-group">
           <label for="email">Email</label>
           <input
             type="text"
             class="form-control"
             formControlName="email"
-            [class.is-invalid]="
-              loginForm.controls.email.touched &&
-              loginForm.controls.email.invalid
-            "
+            [class.is-invalid]="loginForm.get('email').errors?.servererror"
           />
           <small
             class="invalid-feedback"
-            [class.d-none]="
-              loginForm.controls.email.untouched ||
-              loginForm.controls.email.valid
-            "
-            >Email is required</small
+            *ngIf="loginForm.get('email').errors?.servererror"
+            >{{ loginForm.get("email").errors?.servererror }}</small
           >
         </div>
         <div class="form-group">
@@ -30,18 +33,12 @@
             type="text"
             class="form-control"
             formControlName="password"
-            [class.is-invalid]="
-              loginForm.controls.password.touched &&
-              loginForm.controls.password.invalid
-            "
+            [class.is-invalid]="loginForm.get('password').errors?.servererror"
           />
           <small
             class="invalid-feedback"
-            [class.d-none]="
-              loginForm.controls.password.untouched ||
-              loginForm.controls.password.valid
-            "
-            >Password is required</small
+            *ngIf="loginForm.get('password').errors?.servererror"
+            >{{ loginForm.get("password").errors?.servererror }}</small
           >
         </div>
         <div class="form-group">
