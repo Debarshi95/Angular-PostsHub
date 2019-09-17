@@ -1,0 +1,8 @@
+.card:hover {
+  text-decoration: none;
+}
+.card-title,
+.card-text,
+.card-footer {
+  color: #000000;
+}

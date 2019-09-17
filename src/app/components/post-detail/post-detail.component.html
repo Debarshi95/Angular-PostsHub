@@ -1,1 +1,14 @@
-<p>post-detail works!</p>
+<div>
+  <app-navbar></app-navbar>
+  <div class="container">
+    <div class="card mt-5" *ngIf="post">
+      <div class="card-body">
+        <div class="card-title">
+          <h4>{{ post.title }}</h4>
+        </div>
+        <div class="card-text">{{ post.body }}</div>
+      </div>
+      <div class="card-footer">{{ post.created_at | date: "shortDate" }}</div>
+    </div>
+  </div>
+</div>
