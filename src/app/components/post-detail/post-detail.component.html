@@ -8,7 +8,12 @@
         </div>
         <div class="card-text">{{ post.body }}</div>
         <div *ngIf="authService.checkToken()">
-          <a routerLink="/posts/{{ id }}/edit" class="btn btn-primary">Edit</a>
+          <a
+            routerLink="/posts/{{ id }}/edit"
+            [state]="{ post: post }"
+            class="btn btn-primary"
+            >Edit</a
+          >
           <a routerLink="/posts/{{ id }}/delete" class="btn btn-danger"
             >Danger</a
           >

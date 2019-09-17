@@ -18,4 +18,13 @@ export class PostsService {
   getPost(id: string): Observable<any> {
     return this.http.get<any>(`${this.url}/posts/${id}`, this.httpOptions);
   }
+
+  editPost(post, id): Observable<any> {
+    return this.http.put<any>(`${this.url}/posts/${id}/update`, post, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest"
+      })
+    });
+  }
 }
