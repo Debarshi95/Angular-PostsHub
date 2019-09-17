@@ -9,8 +9,8 @@
           </div>
           <p class="card-text">{{ post.body }}</p>
         </div>
-        <div class="card-footer">
-          <p class="float-right">{{ post.created_at | date: "shortDate" }}</p>
+        <div class="card-footer float-right">
+          {{ post.created_at | date: "shortDate" }}
         </div>
       </a>
     </div>

@@ -27,4 +27,12 @@ export class PostsService {
       })
     });
   }
+  deletePost(id): Observable<any> {
+    return this.http.delete<any>(`${this.url}/posts/${id}/delete`, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest"
+      })
+    });
+  }
 }

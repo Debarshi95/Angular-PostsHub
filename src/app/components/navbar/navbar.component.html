@@ -30,6 +30,11 @@
             >Register</a
           >
         </li>
+        <li class="nav-item" *ngIf="authService.checkToken()">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive
+            >Dashboard</a
+          >
+        </li>
       </ul>
     </div>
   </nav>

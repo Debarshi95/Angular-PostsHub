@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PostsService } from "src/app/posts.service";
 import { AuthService } from "src/app/auth.service";
 
@@ -11,10 +11,12 @@ import { AuthService } from "src/app/auth.service";
 export class PostDetailComponent implements OnInit {
   id: string;
   post: {};
+  error: [] = [];
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService,
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -31,7 +33,25 @@ export class PostDetailComponent implements OnInit {
         this.post = res.post;
         console.log(this.post);
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  deletePost(id) {
+    this.postsService.deletePost(id).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(["/posts"]);
+      },
+      err => {
+        console.log(err);
+        if (err.error) {
+          this.error = err.error;
+        }
+        console.log(this.error);
+      }
     );
   }
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -14,9 +14,10 @@ import { HomeComponent } from "./components/home/home.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MainContentComponent } from "./components/main-content/main-content.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { DashboardLeftSidebarComponent } from './components/dashboard-left-sidebar/dashboard-left-sidebar.component';
-import { PostCreateComponent } from './components/post-create/post-create.component';
-import { PostEditComponent } from './components/post-edit/post-edit.component';
+import { DashboardLeftSidebarComponent } from "./components/dashboard-left-sidebar/dashboard-left-sidebar.component";
+import { PostCreateComponent } from "./components/post-create/post-create.component";
+import { PostEditComponent } from "./components/post-edit/post-edit.component";
+import { TokenInterceptorService } from "./token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,13 @@ import { PostEditComponent } from './components/post-edit/post-edit.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,6 +1,12 @@
 <div>
   <div class="container">
-    <a routerLink="/posts/{{ state.id }}" class="btn btn-primary mt-5">back</a>
+    <a routerLink="/posts/{{ state.id }}" class="btn btn-primary mt-3">back</a>
+    <div
+      class="alert alert-danger text-center mt-2"
+      *ngIf="editPostForm.errors?.servererror"
+    >
+      {{ editPostForm.errors.servererror }}
+    </div>
     <div class="card mt-4 mb-5 px-4">
       <div class="card-body">
         <div class="card-title"><h3>Edit post</h3></div>
