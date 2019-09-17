@@ -24,7 +24,11 @@ export class RegisterComponent implements OnInit {
   registerUser(user: FormGroup) {
     console.log(user);
     this.authService.register(user.value).subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res);
+        localStorage.setItem("token", res.token);
+        this.router.navigate(["/dashboard"]);
+      },
       err => {
         console.log(err);
         if (err.error.message) {

@@ -9,7 +9,7 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 const routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: "full" },
   { path: "login", component: LoginComponent },
-  { path: "signup", component: RegisterComponent },
+  { path: "register", component: RegisterComponent },
   { path: "posts", component: PostsComponent },
   {
     path: "dashboard",
