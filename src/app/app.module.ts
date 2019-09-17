@@ -15,6 +15,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MainContentComponent } from "./components/main-content/main-content.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { DashboardLeftSidebarComponent } from './components/dashboard-left-sidebar/dashboard-left-sidebar.component';
+import { PostCreateComponent } from './components/post-create/post-create.component';
+import { PostEditComponent } from './components/post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DashboardLeftSidebarComponent } from './components/dashboard-left-sideb
     NavbarComponent,
     MainContentComponent,
     FooterComponent,
-    DashboardLeftSidebarComponent
+    DashboardLeftSidebarComponent,
+    PostCreateComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,
