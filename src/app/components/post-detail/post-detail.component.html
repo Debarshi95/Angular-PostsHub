@@ -7,6 +7,12 @@
           <h4>{{ post.title }}</h4>
         </div>
         <div class="card-text">{{ post.body }}</div>
+        <div *ngIf="authService.checkToken()">
+          <a routerLink="/posts/{{ id }}/edit" class="btn btn-primary">Edit</a>
+          <a routerLink="/posts/{{ id }}/delete" class="btn btn-danger"
+            >Danger</a
+          >
+        </div>
       </div>
       <div class="card-footer">{{ post.created_at | date: "shortDate" }}</div>
     </div>
