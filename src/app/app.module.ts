@@ -1,12 +1,12 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import{HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
-import { SignUpComponent } from "./components/signup/signup.component";
+import { RegisterComponent } from "./components/register/register.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { PostsComponent } from "./components/posts/posts.component";
 import { PostDetailComponent } from "./components/post-detail/post-detail.component";
@@ -19,7 +19,7 @@ import { FooterComponent } from "./components/footer/footer.component";
   declarations: [
     AppComponent,
     LoginComponent,
-    SignUpComponent,
+    RegisterComponent,
     DashboardComponent,
     PostsComponent,
     PostDetailComponent,
@@ -28,7 +28,13 @@ import { FooterComponent } from "./components/footer/footer.component";
     MainContentComponent,
     FooterComponent
   ],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule,HttpClientModule],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
