@@ -19,6 +19,13 @@ export class PostsService {
     return this.http.get<any>(`${this.url}/posts/${id}`, this.httpOptions);
   }
 
+  createPost(post): Observable<any> {
+    return this.http.post<any>(
+      `${this.url}/posts/create`,
+      post,
+      this.httpOptions
+    );
+  }
   editPost(post, id): Observable<any> {
     return this.http.put<any>(`${this.url}/posts/${id}/update`, post, {
       headers: new HttpHeaders({

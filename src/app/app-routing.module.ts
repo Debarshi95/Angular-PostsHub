@@ -7,6 +7,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { PostDetailComponent } from "./components/post-detail/post-detail.component";
 import { PostEditComponent } from "./components/post-edit/post-edit.component";
+import { PostCreateComponent } from "./components/post-create/post-create.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: "full" },
@@ -18,6 +19,7 @@ const routes: Routes = [
   },
   { path: "posts", component: PostsComponent },
   { path: "posts/:id", component: PostDetailComponent },
+  { path: "create", component: PostCreateComponent },
   {
     path: "posts/:id/edit",
     component: PostEditComponent
